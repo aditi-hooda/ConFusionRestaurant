@@ -13,26 +13,6 @@
     <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css" />
     <link rel="stylesheet" href="css/styles.css" />
     <title>Ristorante Con Fusion</title>
-    <script>
-        var buttonClicked = 1;
-        function ChangeProgress() {
-            debugger;
-            var progressbar = document.getElementById("progress-bar");
-            var buttonToChangeProgress = document.getElementById("changeProgress");
-            if (buttonClicked == 10) {
-                buttonToChangeProgress.textContent = "Reset";
-            }
-            else {
-                buttonToChangeProgress.textContent = "Change Progress";
-            }
-            if (buttonClicked > 10) {
-                buttonClicked = 0.5;
-            }
-            progressbar.style["width"] = "" + buttonClicked * 10 + "%";
-            progressbar.innerText = buttonClicked * 10 + "%";
-            buttonClicked++;
-        }
-    </script>
 </head>
 
 <body>
@@ -86,7 +66,9 @@
                     <img src="assets/img/logo.png" class="image-fluid" />
                 </div>
                 <div class="col-sm-3 align-self-center">
-                    <a class="btn btn-block btn-warning" type="button" href="#reserveTable">Reserve
+                    <a class="btn btn-block btn-warning" type="button" data-toggle="tooltip" data-html="true"
+                        title="Or Call us at<br><strong>+000000</strong>" data-placement="bottom"
+                        href="#reserveTable">Reserve
                         Table</a>
                 </div>
             </div>
@@ -301,6 +283,31 @@
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script>
+        var buttonClicked = 1;
+        function ChangeProgress() {
+            debugger;
+            var progressbar = document.getElementById("progress-bar");
+            var buttonToChangeProgress = document.getElementById("changeProgress");
+            if (buttonClicked == 10) {
+                buttonToChangeProgress.textContent = "Reset";
+            }
+            else {
+                buttonToChangeProgress.textContent = "Change Progress";
+            }
+            if (buttonClicked > 10) {
+                buttonClicked = 0.5;
+            }
+            progressbar.style["width"] = "" + buttonClicked * 10 + "%";
+            progressbar.innerText = buttonClicked * 10 + "%";
+            buttonClicked++;
+        }
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
 </body>
 
 </html>
