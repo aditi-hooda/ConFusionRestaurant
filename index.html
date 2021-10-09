@@ -13,6 +13,26 @@
     <link rel="stylesheet" href="node_modules/bootstrap-social/bootstrap-social.css" />
     <link rel="stylesheet" href="css/styles.css" />
     <title>Ristorante Con Fusion</title>
+    <script>
+        var buttonClicked = 1;
+        function ChangeProgress() {
+            debugger;
+            var progressbar = document.getElementById("progress-bar");
+            var buttonToChangeProgress = document.getElementById("changeProgress");
+            if (buttonClicked == 10) {
+                buttonToChangeProgress.textContent = "Reset";
+            }
+            else {
+                buttonToChangeProgress.textContent = "Change Progress";
+            }
+            if (buttonClicked > 10) {
+                buttonClicked = 0.5;
+            }
+            progressbar.style["width"] = "" + buttonClicked * 10 + "%";
+            progressbar.innerText = buttonClicked * 10 + "%";
+            buttonClicked++;
+        }
+    </script>
 </head>
 
 <body>
@@ -70,6 +90,23 @@
     </header>
 
     <div class="container">
+        <div class="alert alert-warning alert-dismissible mt-3" role="alert">
+            <button type="button" class="close" data-dismiss="alert">
+                <span>&times;</span>
+            </button>
+            <strong>Warning:</strong>Please
+            <a href="tel:00000000" class="alert-link">
+                Call
+            </a> us to reserve for more than six guests.
+        </div>
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped bg-danger" id="progress-bar" role="progressbar"
+                style="width:5%">5%</div>
+        </div>
+        <div class="mt-3">
+            <button type="button" id="changeProgress" class="btn btn-info" onclick="ChangeProgress()">Change
+                Progress</button>
+        </div>
         <div class="row row-content align-items-center">
             <div class="col-12 col-sm-4 order-sm-last col-md-3">
                 <!-- <img src="./assets/img/PanCake1.png" /> -->
